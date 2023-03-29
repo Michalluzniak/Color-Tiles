@@ -1,9 +1,12 @@
-import NewColorForm from './components/NewColorForm';
+import { ColorsGrid } from './components/ColorsGrid';
+import { Header } from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <NewColorForm />
+      <Header />
+
+      <ColorsGrid />
     </div>
   );
 }

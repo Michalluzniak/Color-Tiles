@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  width: 100%;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17.5%;
+    height: 100%;
+
+    p {
+      color: #730071;
+      font-size: 3rem;
+      font-family: 'Yellowtail', cursive;
+      transform: translateY(-10%);
+    }
+  }
+}

@@ -1,9 +1,26 @@
-@import './variables', './resets';
+//Helpers
+@import './helpers/variables', './helpers/resets', './helpers/fonts';
+//Components
+@import './components/FilterColorsForm/index', './components/Header/index', './components/NewColorForm/index';
 
 body {
   background-color: #fff;
   width: 100%;
   height: 100vh;
+
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    .colors-grid {
+      height: 80%;
+      width: 65%;
+      background-color: #999;
+    }
+  }
 }
 
 // background-color: rgba(var(--color_rgb), 1)
