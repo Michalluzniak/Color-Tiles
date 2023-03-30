@@ -5,7 +5,7 @@ export const Dropdown = ({
   dropdownToggle,
   checkboxFilterOptions,
   checkedState,
-  checkboxesHandler,
+  handleFilterChange,
 }: any) => {
   return (
     <div className="dropdown">
@@ -15,7 +15,7 @@ export const Dropdown = ({
           <CheckboxList
             checkboxFilterOptions={checkboxFilterOptions}
             checkedState={checkedState}
-            checkboxesHandler={checkboxesHandler}
+            handleFilterChange={handleFilterChange}
           />
         </div>
       )}

@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { Dropdown } from './Dropdown';
 
-export const FilterColorsForm = () => {
+export const FilterColorsForm = ({ filter, setFilter }: any) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  const checkboxFilterOptions = ['Red > 50%', 'Green > 50%', 'Blue > 50%'];
-  const [checkedState, setCheckedState] = useState(new Array(checkboxFilterOptions.length).fill(false));
+  const checkboxFilterOptions = Object.keys(filter);
 
-  const checkboxesHandler = (checkboxPosition: number) => {
-    const updateCheckboxState = checkedState.map((item, index) => {
-      return index === checkboxPosition ? !item : item;
-    });
-    setCheckedState(updateCheckboxState);
+  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    setFilter((prevFilter: any) => ({ ...prevFilter, [name]: checked }));
   };
 
   const inputValueHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +37,8 @@ export const FilterColorsForm = () => {
         isDropdownOpen={isDropdownOpen}
         dropdownToggle={dropdownToggle}
         checkboxFilterOptions={checkboxFilterOptions}
-        checkedState={checkedState}
-        checkboxesHandler={checkboxesHandler}
+        checkedState={filter}
+        handleFilterChange={handleFilterChange}
       />
     </form>
   );

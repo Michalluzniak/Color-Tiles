@@ -1,21 +1,29 @@
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  height: 10%;
+  height: 100px;
   width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
 
   .logo {
+    width: 20%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 17.5%;
-    height: 100%;
-
-    p {
+    a {
       color: #730071;
-      font-size: 3rem;
-      font-family: 'Yellowtail', cursive;
-      transform: translateY(-10%);
+
+      p {
+        color: #730071;
+        font-size: 3rem;
+        font-family: 'Yellowtail', cursive;
+        transform: translateY(-10%);
+      }
     }
   }
 }

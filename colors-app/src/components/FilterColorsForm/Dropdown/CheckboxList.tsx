@@ -1,6 +1,4 @@
-import React from 'react';
-
-export const CheckboxList = ({ checkboxFilterOptions, checkedState, checkboxesHandler }: any) => {
+export const CheckboxList = ({ checkboxFilterOptions, checkedState, handleFilterChange }: any) => {
   return (
     <ul className="checkboxes-filter-list">
       {checkboxFilterOptions.map((name: string, index: number) => {
@@ -11,10 +9,12 @@ export const CheckboxList = ({ checkboxFilterOptions, checkedState, checkboxesHa
                 type="checkbox"
                 id={`filter-checkbox-${index}`}
                 name={name}
-                checked={checkedState[index]}
-                onChange={() => checkboxesHandler(index)}
+                checked={checkedState[name]}
+                onChange={handleFilterChange}
               />
-              <label htmlFor={`filter-checkbox-${index}`}>{name}</label>
+              <label htmlFor={`filter-checkbox-${index}`}>{`${
+                name.charAt(0).toUpperCase() + name.slice(1)
+              } > 50%`}</label>
             </div>
           </li>
         );

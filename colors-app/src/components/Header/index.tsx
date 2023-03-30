@@ -1,15 +1,17 @@
 import { FilterColorsForm } from '../FilterColorsForm';
 import NewColorForm from '../NewColorForm';
 
-export const Header = () => {
+export const Header = ({ colors, setColors, removeColor, newColor, setNewColor, filter, setFilter }: any) => {
   return (
     <div className="header">
       <div className="logo">
-        <p className="Logo">color tiles</p>
+        <a href="/">
+          <p>color tiles</p>
+        </a>
       </div>
 
-      <FilterColorsForm />
-      <NewColorForm />
+      <FilterColorsForm filter={filter} setFilter={setFilter} />
+      <NewColorForm colors={colors} setColors={setColors} newColor={newColor} setNewColor={setNewColor} />
     </div>
   );
 };

@@ -1,42 +1,53 @@
 import React from 'react';
-import { addColorToLocalStorage } from '../../utils/addColorToLocalStorage';
-import { getColorsFromLocalStorage } from '../../utils/getColorsFromLocalStorage';
+import { addColorValidation } from '../../utils/validation/addColorValidation';
+import { doesColorNotExist } from '../../utils/validation/doesColorNotExist';
+import { realTimeHexValidation } from '../../utils/validation/realTimeHexValidation';
+import Input from './Input';
 
-export default class NewColorForm extends React.Component {
+interface NewColorFormProps {
+  colors: any;
+  setColors: any;
+  newColor: any;
+  setNewColor: (key: any) => any;
+}
+
+export default class NewColorForm extends React.Component<NewColorFormProps> {
   state = {
     inputValue: '',
   };
 
-  setInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ inputValue: event.target.value });
+  setInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (realTimeHexValidation(event.target.value) || event.target.value === '') {
+      this.setState({ inputValue: event.target.value });
+      this.props.setNewColor(event.target.value);
+    }
   };
 
-  submitHandler = () => {
-    addColorToLocalStorage(this.state.inputValue);
-  };
+  submitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
 
-  example = () => {
-    console.log(getColorsFromLocalStorage());
+    if (
+      this.props.newColor &&
+      doesColorNotExist(this.props.colors, this.props.newColor) &&
+      addColorValidation(this.state.inputValue)
+    ) {
+      this.props.setColors([
+        ...this.props.colors,
+        { name: this.state.inputValue.toUpperCase(), value: this.state.inputValue.toUpperCase() },
+      ]);
+      this.props.setNewColor('');
+      this.setState({ inputValue: '' });
+    }
   };
-
-  componentDidMount() {
-    console.log(getColorsFromLocalStorage());
-  }
 
   render() {
     return (
       <>
-        <form className="new-color-form" onSubmit={this.submitHandler}>
+        <form className="new-color-form" onSubmit={(event) => this.submitHandler(event)}>
           <label htmlFor="color"></label>
-          <input
-            name="color"
-            type="text"
-            placeholder="Add a color"
-            value={this.state.inputValue}
-            onChange={(event) => this.setInputValue(event)}
-          />
+          <Input inputValue={this.state.inputValue} setInputValue={this.setInputValue} />
+          <button>+</button>
         </form>
-        {/* <button onClick={this.example}>Click</button> */}
       </>
     );
   }

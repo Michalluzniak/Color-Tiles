@@ -1,12 +1,21 @@
 import { ColorsGrid } from './components/ColorsGrid';
 import { Header } from './components/Header';
+import { useColorFilter } from './hooks/useColorFilter';
 
 function App() {
+  const [colors, setColors, removeColor, newColor, setNewColor, filter, setFilter] = useColorFilter();
   return (
     <div className="App">
-      <Header />
+      <Header
+        colors={colors}
+        setColors={setColors}
+        newColor={newColor}
+        setNewColor={setNewColor}
+        filter={filter}
+        setFilter={setFilter}
+      />
 
-      <ColorsGrid />
+      <ColorsGrid colors={colors} removeColor={removeColor} />
     </div>
   );
 }
