@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Michalluzniak/Color-Tiles/static/css/main.c2e93cc8.css",
+    "main.js": "/Michalluzniak/Color-Tiles/static/js/main.72b6129a.js",
+    "static/js/787.6182a4f2.chunk.js": "/Michalluzniak/Color-Tiles/static/js/787.6182a4f2.chunk.js",
+    "index.html": "/Michalluzniak/Color-Tiles/index.html",
+    "main.c2e93cc8.css.map": "/Michalluzniak/Color-Tiles/static/css/main.c2e93cc8.css.map",
+    "main.72b6129a.js.map": "/Michalluzniak/Color-Tiles/static/js/main.72b6129a.js.map",
+    "787.6182a4f2.chunk.js.map": "/Michalluzniak/Color-Tiles/static/js/787.6182a4f2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2e93cc8.css",
+    "static/js/main.72b6129a.js"
+  ]
+}
