@@ -3,11 +3,12 @@ import { Header } from './components/Header';
 import { useColorFilter } from './hooks/useColorFilter';
 
 function App() {
-  const [colors, setColors, removeColor, newColor, setNewColor, filter, setFilter] = useColorFilter();
+  const [sortedColors, setColors, removeColor, newColor, setNewColor, filter, setFilter] = useColorFilter();
+
   return (
     <div className="App">
       <Header
-        colors={colors}
+        colors={sortedColors}
         setColors={setColors}
         newColor={newColor}
         setNewColor={setNewColor}
@@ -15,7 +16,7 @@ function App() {
         setFilter={setFilter}
       />
 
-      <ColorsGrid colors={colors} removeColor={removeColor} />
+      <ColorsGrid colors={sortedColors} removeColor={removeColor} />
     </div>
   );
 }

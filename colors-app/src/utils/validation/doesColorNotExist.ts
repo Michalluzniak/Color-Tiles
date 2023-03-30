@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Colors = {
   name: string;
   value: string;

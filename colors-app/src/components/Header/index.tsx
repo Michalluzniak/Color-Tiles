@@ -1,7 +1,7 @@
 import { FilterColorsForm } from '../FilterColorsForm';
 import NewColorForm from '../NewColorForm';
 
-export const Header = ({ colors, setColors, removeColor, newColor, setNewColor, filter, setFilter }: any) => {
+export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter }: any) => {
   return (
     <div className="header">
       <div className="logo">

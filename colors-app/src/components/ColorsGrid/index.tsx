@@ -1,6 +1,12 @@
+import { Colors } from '../../hooks/useColorFilter';
 import { SingleColorTile } from './SingleColorTile';
 
-export const ColorsGrid = ({ colors, removeColor }: any) => {
+interface ColorsGridProps {
+  colors: any;
+  removeColor: (color: string) => void;
+}
+
+export const ColorsGrid = ({ colors, removeColor }: ColorsGridProps) => {
   return (
     <main className="colors-grid">
       {colors.map((color: any, index: number) => {
