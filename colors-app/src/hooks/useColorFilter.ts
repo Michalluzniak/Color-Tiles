@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { addToLocalStorage } from '../utils/addToLocalStorage';
 import { hexToRgb } from '../utils/colorsForm/hexToRgb';
 import { rgbToHsl } from '../utils/colorsForm/rgbToHsl';
-
 import { getColorsFromLocalStorage } from '../utils/getFromLocalStorage';
 
 export interface Colors {
@@ -29,11 +28,6 @@ export const useColorFilter = () => {
     saturation: false,
   });
 
-  const isAnyFilterChecked = () => {
-    return filter.red || filter.green || filter.blue || filter.saturation;
-  };
-
-  console.log(!!filter);
   useEffect(() => {
     const savedColors = getColorsFromLocalStorage('colors');
     if (savedColors) {
@@ -51,7 +45,7 @@ export const useColorFilter = () => {
     setColors(colors.filter((c) => c.value !== color));
   };
 
-  const filteredColors = useMemo(() => {
+  const filteredColors: Colors[] = useMemo(() => {
     if (!filter.red && !filter.green && !filter.blue && !filter.saturation) {
       // Return original colors array if no color option is checked
       return colors;
@@ -75,7 +69,7 @@ export const useColorFilter = () => {
     });
   }, [colors, filter.red, filter.green, filter.blue, filter.saturation]);
 
-  const sortedColors = filteredColors.sort((c1, c2) => {
+  const sortedColors: Colors[] = filteredColors.sort((c1, c2) => {
     const [r1, g1, b1] = hexToRgb(c1.value);
     const [r2, g2, b2] = hexToRgb(c2.value);
 
@@ -88,5 +82,5 @@ export const useColorFilter = () => {
     }
   });
 
-  return [sortedColors, setColors, removeColor, newColor, setNewColor, filter, setFilter];
+  return [sortedColors, setColors, removeColor, newColor, setNewColor, filter, setFilter] as const;
 };

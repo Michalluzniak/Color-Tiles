@@ -1,4 +1,13 @@
+import { Filter } from '../index';
 import { CheckboxList } from './CheckboxList';
+
+interface DropdownProps {
+  isDropdownOpen: boolean;
+  dropdownToggle: () => void;
+  checkboxFilterOptions: string[];
+  checkedState: Filter;
+  handleFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 export const Dropdown = ({
   isDropdownOpen,
@@ -6,7 +15,7 @@ export const Dropdown = ({
   checkboxFilterOptions,
   checkedState,
   handleFilterChange,
-}: any) => {
+}: DropdownProps) => {
   return (
     <div className="dropdown">
       <button onClick={dropdownToggle}>Filter</button>

@@ -4,5 +4,5 @@ type Colors = {
 };
 
 export const doesColorNotExist = (colors: Colors[], newColor: string) => {
-  return !colors.find((color: any) => color.value === newColor);
+  return !colors.find((color) => color.value === newColor);
 };

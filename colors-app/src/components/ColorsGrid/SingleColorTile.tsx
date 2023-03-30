@@ -1,6 +1,12 @@
+import { Colors } from '../../hooks/useColorFilter';
 import { isColorDefault } from '../../utils/isColorDefault';
 
-export const SingleColorTile = ({ color, removeColor, index }: any) => {
+interface SingleColorTileProps {
+  color: Colors;
+  removeColor: (color: string) => void;
+}
+
+export const SingleColorTile = ({ color, removeColor }: SingleColorTileProps) => {
   //
   const tileBackgroundColor = { backgroundColor: color.value };
 

@@ -1,7 +1,17 @@
-import { FilterColorsForm } from '../FilterColorsForm';
+import { Colors } from '../../hooks/useColorFilter';
+import { Filter, FilterColorsForm } from '../FilterColorsForm';
 import NewColorForm from '../NewColorForm';
 
-export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter }: any) => {
+interface HeaderProps {
+  colors: Colors[];
+  setColors: React.Dispatch<React.SetStateAction<Colors[]>>;
+  newColor: string;
+  setNewColor: React.Dispatch<React.SetStateAction<string>>;
+  filter: Filter;
+  setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+}
+
+export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter }: HeaderProps) => {
   return (
     <div className="header">
       <div className="logo">

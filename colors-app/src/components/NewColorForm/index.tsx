@@ -1,14 +1,15 @@
 import React from 'react';
+import { Colors } from '../../hooks/useColorFilter';
 import { addColorValidation } from '../../utils/validation/addColorValidation';
 import { doesColorNotExist } from '../../utils/validation/doesColorNotExist';
 import { realTimeHexValidation } from '../../utils/validation/realTimeHexValidation';
 import Input from './Input';
 
 interface NewColorFormProps {
-  colors: any;
-  setColors: any;
-  newColor: any;
-  setNewColor: (key: any) => any;
+  colors: Colors[];
+  setColors: React.Dispatch<React.SetStateAction<Colors[]>>;
+  newColor: string;
+  setNewColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default class NewColorForm extends React.Component<NewColorFormProps> {

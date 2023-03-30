@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import { Dropdown } from './Dropdown';
 
-export const FilterColorsForm = ({ filter, setFilter }: any) => {
+export type Filter = { red: boolean; green: boolean; blue: boolean; saturation: boolean };
+
+export interface FilterColorsFormProps {
+  filter: Filter;
+  setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+}
+
+export const FilterColorsForm = ({ filter, setFilter }: FilterColorsFormProps) => {
+  //
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  const checkboxFilterOptions = Object.keys(filter);
+  const CHECKBOX_FILTER_OPTIONS = Object.keys(filter);
 
-  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, checked } = event.target;
-    setFilter((prevFilter: any) => ({ ...prevFilter, [name]: checked }));
+    setFilter((prevFilter) => ({ ...prevFilter, [name]: checked }));
   };
 
-  const inputValueHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const inputValueHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(event.target.value);
   };
 
-  const dropdownToggle = () => {
+  const dropdownToggle = (): void => {
     setIsDropdownOpen((prev) => !prev);
   };
 
@@ -36,7 +44,7 @@ export const FilterColorsForm = ({ filter, setFilter }: any) => {
       <Dropdown
         isDropdownOpen={isDropdownOpen}
         dropdownToggle={dropdownToggle}
-        checkboxFilterOptions={checkboxFilterOptions}
+        checkboxFilterOptions={CHECKBOX_FILTER_OPTIONS}
         checkedState={filter}
         handleFilterChange={handleFilterChange}
       />

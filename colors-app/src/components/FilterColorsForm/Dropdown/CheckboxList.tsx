@@ -1,4 +1,12 @@
-export const CheckboxList = ({ checkboxFilterOptions, checkedState, handleFilterChange }: any) => {
+type CheckedState = { [key: string]: boolean };
+
+interface CheckboxListProps {
+  checkboxFilterOptions: string[];
+  checkedState: CheckedState;
+  handleFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const CheckboxList = ({ checkboxFilterOptions, checkedState, handleFilterChange }: CheckboxListProps) => {
   return (
     <ul className="checkboxes-filter-list">
       {checkboxFilterOptions.map((name: string, index: number) => {
