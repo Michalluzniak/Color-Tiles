@@ -27,7 +27,7 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
 
   submitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
+    console.log(this.props.newColor);
     if (
       this.props.newColor &&
       doesColorNotExist(this.props.colors, this.props.newColor) &&
