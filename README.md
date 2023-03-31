@@ -1,6 +1,12 @@
 # Color Tiles App
 
+## App description
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+- You can store your favorite colors in hexadecimal format and come back to them later, they will stay in place.
+- You can also filter them using the search bar or special filtering options, e.g. (red > 127).
+- Clicking on a color tile will copy it to the clipboard, you might as well remove it by clicking the "x" circle button.
 
 ## Technologies 
 
