@@ -27,7 +27,7 @@ export const SingleColorTile = ({ color, removeColor }: SingleColorTileProps) =>
               removeColor(color.value);
             }}
           >
-            x
+            ✕
           </span>
         )}
       </div>

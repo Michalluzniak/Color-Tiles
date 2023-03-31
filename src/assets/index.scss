@@ -1,5 +1,5 @@
 //Helpers
-@import './helpers/variables', './helpers/resets', './helpers/fonts';
+@import './helpers/variables', './helpers/mixins', './helpers/resets', './helpers/fonts';
 //Components
 @import './components/FilterColorsForm/index', './components/Header/index', './components/NewColorForm/index',
   './components/ColorsGrid/index';
@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 }
 

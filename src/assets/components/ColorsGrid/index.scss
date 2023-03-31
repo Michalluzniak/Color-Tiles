@@ -1,28 +1,35 @@
 .colors-grid {
-  display: grid;
-  grid-gap: 1rem;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 15%);
-  grid-auto-rows: 150px;
-  width: 60%;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+  @include sm {
+  }
+  @include xl {
+    display: grid;
+    grid-gap: 1.5rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 15%);
+    grid-auto-rows: 10rem;
+    width: 80%;
+    margin-top: 1rem;
+    height: 100%;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
 
-  .single-color-tile-container {
-    margin: 1rem;
-
-    .single-color-tile {
+  .single-color-tile {
+    @include xl {
       position: relative;
       border-radius: 0.3rem;
       height: 90%;
       width: 100%;
+      box-shadow: 0 0 4px 1px #999;
       cursor: pointer;
+    }
 
-      &:hover .remove-tile {
-        display: flex;
-      }
+    &:hover .remove-tile {
+      display: flex;
+    }
 
-      .remove-tile {
+    .remove-tile {
+      @include xl {
         display: none;
         justify-content: center;
         align-items: center;
@@ -40,7 +47,9 @@
         cursor: pointer;
       }
     }
-    p {
+  }
+  p {
+    @include xl {
       text-align: center;
       padding-top: 0.3rem;
     }

@@ -1,0 +1,51 @@
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  min-height: 10%;
+  background-color: $background-color;
+  box-shadow: 0 0 5px 1px #999;
+  z-index: 100;
+
+  @include flex(row, space-between, start);
+
+  @include sm {
+  }
+  @include xl {
+    min-height: 10%;
+    box-shadow: 0 0 10px 1px #999;
+    @include flex(row, space-between, start);
+  }
+
+  .logo {
+    width: 50%;
+    height: 100%;
+    padding-left: 1rem;
+    @include flex(row, start, center);
+    @include sm {
+    }
+
+    @include xl {
+      width: 20%;
+      height: 100%;
+      @include flex(row, center, center);
+    }
+
+    a {
+      color: #730071;
+
+      p {
+        font-family: 'Yellowtail', cursive;
+        color: $logo;
+        text-shadow: 1px 1px #73007166;
+        font-size: 1.5rem;
+        @include sm {
+        }
+        @include xl {
+          font-size: 3rem;
+          transform: translateY(-10%);
+        }
+      }
+    }
+  }
+}

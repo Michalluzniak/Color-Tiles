@@ -1,0 +1,64 @@
+form.new-color-form {
+  display: none;
+  @include sm {
+  }
+  @include xl {
+    width: 20%;
+    height: 100%;
+    @include flex(row, center, center);
+  }
+
+  div {
+    display: flex;
+    position: relative;
+    background-color: $background-color;
+    width: 60%;
+    height: 40%;
+    margin-right: 0.5rem;
+    @include sm {
+    }
+    @include xl {
+      display: flex;
+      position: relative;
+      background-color: $background-color;
+      width: 60%;
+      height: 40%;
+      margin-right: 0.5rem;
+    }
+
+    input[name='color'] {
+      background-color: $background-color;
+      outline: none;
+      width: 100%;
+      padding-left: 1rem;
+      @include round-border;
+      @include sm {
+      }
+
+      @include xl {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  button {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $background-color;
+    @include round-border(5);
+    @include sm {
+    }
+
+    @include xl {
+      width: 2.5rem;
+      height: 2.5rem;
+      @include round-border(5);
+    }
+
+    &:hover {
+      background-color: #eee;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
