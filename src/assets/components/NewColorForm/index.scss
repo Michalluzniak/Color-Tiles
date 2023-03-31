@@ -1,26 +1,34 @@
 form.new-color-form {
-  display: none;
-  @include sm {
+  width: 100%;
+  height: 40%;
+  @include flex(row, center, center);
+
+  @include lg {
+    width: 30%;
+    height: 100%;
   }
+
   @include xl {
     width: 20%;
-    height: 100%;
-    @include flex(row, center, center);
   }
 
   div {
     display: flex;
     position: relative;
     background-color: $background-color;
-    width: 60%;
+    width: 70%;
     height: 40%;
-    margin-right: 0.5rem;
-    @include sm {
+
+    @include md {
+      height: 60%;
     }
+
+    @include lg {
+      width: 60%;
+      height: 40%;
+    }
+
     @include xl {
-      display: flex;
-      position: relative;
-      background-color: $background-color;
       width: 60%;
       height: 40%;
       margin-right: 0.5rem;
@@ -30,29 +38,44 @@ form.new-color-form {
       background-color: $background-color;
       outline: none;
       width: 100%;
+      height: 100%;
       padding-left: 1rem;
+      font-size: 0.6rem;
       @include round-border;
-      @include sm {
+
+      @include md {
+        font-size: 1rem;
+      }
+
+      @include lg {
+        font-size: 0.7rem;
+        margin-right: 0.5rem;
       }
 
       @include xl {
         padding-left: 1rem;
+        font-size: 0.9rem;
       }
     }
   }
 
   button {
-    width: 2.5rem;
-    height: 2.5rem;
+    display: none;
     background-color: $background-color;
-    @include round-border(5);
-    @include sm {
+
+    @include lg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 0.7rem;
+      color: #333;
+      @include round-border(5);
     }
 
     @include xl {
-      width: 2.5rem;
-      height: 2.5rem;
-      @include round-border(5);
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.9rem;
     }
 
     &:hover {

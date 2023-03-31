@@ -58,7 +58,6 @@ export const useColorFilter = () => {
       const greenOver50 = g > 127;
       const blueOver50 = b > 127;
       const saturationOver50 = s > 50;
-      console.log(color);
 
       return (
         (filter.red && redOver50) ||

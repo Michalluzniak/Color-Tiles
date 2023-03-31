@@ -1,8 +1,8 @@
 //Helpers
 @import './helpers/variables', './helpers/mixins', './helpers/resets', './helpers/fonts';
 //Components
-@import './components/FilterColorsForm/index', './components/Header/index', './components/NewColorForm/index',
-  './components/ColorsGrid/index';
+@import './components/FilterColorsForm/index', './components/Header/index', './components/Header/mobileHeader.scss',
+  './components/NewColorForm/index', './components/ColorsGrid/index';
 
 body {
   background-color: #fff;

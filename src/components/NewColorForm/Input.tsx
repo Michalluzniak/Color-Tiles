@@ -14,7 +14,7 @@ export default class Input extends React.Component<InputProps, InputStates> {
         <input
           name="color"
           type="text"
-          placeholder="Add a hex color ex. (#333333)"
+          placeholder="Add a hex color"
           value={this.props.inputValue}
           onChange={this.props.setInputValue}
         />

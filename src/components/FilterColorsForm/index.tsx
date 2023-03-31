@@ -6,10 +6,9 @@ export type Filter = { red: boolean; green: boolean; blue: boolean; saturation: 
 export interface FilterColorsFormProps {
   filter: Filter;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
-  isMobile: boolean;
 }
 
-export const FilterColorsForm = ({ filter, setFilter, isMobile }: FilterColorsFormProps) => {
+export const FilterColorsForm = ({ filter, setFilter }: FilterColorsFormProps) => {
   //
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -34,10 +33,11 @@ export const FilterColorsForm = ({ filter, setFilter, isMobile }: FilterColorsFo
       onSubmit={(e) => {
         e.preventDefault();
       }}
-      className={`filter-colors-form ${isMobile ? 'filter-colors-form-mobile' : ''}`}
+      className="filter-colors-form"
     >
       <input
         type="text"
+        className="searchbar"
         placeholder="Search color in HEX"
         value={inputValue}
         onChange={(event) => inputValueHandler(event)}

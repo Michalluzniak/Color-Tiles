@@ -16,27 +16,30 @@ interface HeaderProps {
 export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter }: HeaderProps) => {
   //
   const [isOpenMobile, setIsOpenMobile] = useState(false);
-  const isMobile = useIsMobile(762);
+  const isMobile = useIsMobile(900);
 
-  return (
-    <div
-      className={`header ${isMobile && isOpenMobile ? 'header-open' : ''}`}
-      onClick={() => setIsOpenMobile((prev) => !prev)}
-    >
-      <div className="logo">
-        <a href="/">
+  return isMobile ? (
+    <div className="mobile-header-wrapper">
+      <div className="header-mobile" onClick={() => setIsOpenMobile((prev) => !prev)}>
+        <div className="logo">
           <p>color tiles</p>
-        </a>
+        </div>
+        <div className="mobile-header-expand-arrow">
+          <p>⌄</p>
+        </div>
       </div>
-
-      <FilterColorsForm filter={filter} setFilter={setFilter} isMobile={isMobile} />
-      <NewColorForm
-        colors={colors}
-        setColors={setColors}
-        newColor={newColor}
-        setNewColor={setNewColor}
-        isMobile={isMobile}
-      />
+      <div className={isOpenMobile ? 'header-mobile-content-active' : 'header-mobile-content'}>
+        <NewColorForm colors={colors} setColors={setColors} newColor={newColor} setNewColor={setNewColor} />
+        <FilterColorsForm filter={filter} setFilter={setFilter} />
+      </div>
+    </div>
+  ) : (
+    <div className="header">
+      <div className="logo">
+        <p>color tiles</p>
+      </div>
+      <FilterColorsForm filter={filter} setFilter={setFilter} />
+      <NewColorForm colors={colors} setColors={setColors} newColor={newColor} setNewColor={setNewColor} />
     </div>
   );
 };

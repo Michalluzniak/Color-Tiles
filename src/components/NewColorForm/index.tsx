@@ -10,7 +10,6 @@ interface NewColorFormProps {
   setColors: React.Dispatch<React.SetStateAction<Colors[]>>;
   newColor: string;
   setNewColor: React.Dispatch<React.SetStateAction<string>>;
-  isMobile: boolean;
 }
 
 export default class NewColorForm extends React.Component<NewColorFormProps> {
@@ -45,10 +44,7 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
   render() {
     return (
       <>
-        <form
-          className={`new-color-form ${this.props.isMobile ? 'new-color-form-mobile' : ''}`}
-          onSubmit={(event) => this.submitHandler(event)}
-        >
+        <form className="new-color-form" onSubmit={(event) => this.submitHandler(event)}>
           <label htmlFor="color"></label>
           <Input inputValue={this.state.inputValue} setInputValue={this.setInputValue} />
           <button>+</button>
