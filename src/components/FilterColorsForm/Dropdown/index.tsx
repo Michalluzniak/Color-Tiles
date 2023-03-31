@@ -8,7 +8,7 @@ interface DropdownProps {
   checkboxFilterOptions: string[];
   checkedState: Filter;
   handleFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  dropdownRef: LegacyRef<HTMLButtonElement>;
+  dropdownRef: LegacyRef<HTMLButtonElement> & LegacyRef<HTMLDivElement>;
 }
 
 export const Dropdown = ({
@@ -25,7 +25,7 @@ export const Dropdown = ({
         Filter
       </button>
       {isDropdownOpen && (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu" ref={dropdownRef}>
           <CheckboxList
             checkboxFilterOptions={checkboxFilterOptions}
             checkedState={checkedState}
