@@ -1,4 +1,5 @@
 form.new-color-form {
+  position: relative;
   width: 100%;
   height: 40%;
   @include flex(row, center, center);
@@ -83,5 +84,20 @@ form.new-color-form {
       cursor: pointer;
       user-select: none;
     }
+  }
+
+  .new-color-error {
+    position: absolute;
+    bottom: -5%;
+    left: 0;
+    transform: translate(20%, 50%);
+    height: 60%;
+    font-size: 0.9rem;
+    padding: 1rem;
+    width: 80%;
+    color: white;
+    background-color: #ff3333;
+    @include flex(row, center, center);
+    @include round-border(0.5);
   }
 }
