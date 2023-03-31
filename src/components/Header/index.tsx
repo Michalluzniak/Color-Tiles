@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Colors } from '../../hooks/useColorFilter';
 import { useIsMobile } from '../../hooks/useIsMobile';
+import { useOutsideAlertClick } from '../../hooks/useOutsideAlertClick';
 import { Filter, FilterColorsForm } from '../FilterColorsForm';
 import NewColorForm from '../NewColorForm';
 
@@ -19,8 +20,16 @@ export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFi
   const [isOpenMobile, setIsOpenMobile] = useState(false);
   const isMobile = useIsMobile(900);
 
+  const wrapperRef = useRef(null);
+  const [clickedOutside, setClickedOutside] = useOutsideAlertClick(wrapperRef);
+
+  useEffect(() => {
+    setIsOpenMobile(false);
+    setClickedOutside(false);
+  }, [clickedOutside, setClickedOutside]);
+
   return isMobile ? (
-    <div className="mobile-header-wrapper">
+    <div className="mobile-header-wrapper" ref={wrapperRef}>
       <div className="header-mobile" onClick={() => setIsOpenMobile((prev) => !prev)}>
         <div className="logo">
           <p>color tiles</p>

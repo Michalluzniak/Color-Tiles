@@ -52,9 +52,10 @@ export const useColorFilter = () => {
       return colors;
     }
     return colors.filter((color) => {
+      //
       const [r, g, b] = hexToRgb(color.value);
       const [h, s, l] = rgbToHsl(r, g, b);
-      console.log(searchTerm);
+
       const redOver50 = r > 127;
       const greenOver50 = g > 127;
       const blueOver50 = b > 127;

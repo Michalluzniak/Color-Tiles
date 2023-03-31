@@ -40,7 +40,7 @@ export const FilterColorsForm = ({ filter, setFilter, setSearchTerm }: FilterCol
       <input
         type="text"
         className="searchbar"
-        placeholder="Search color in HEX"
+        placeholder="Search color by hex, start with #"
         value={inputValue}
         onChange={(event) => inputValueHandler(event)}
       />

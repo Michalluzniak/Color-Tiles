@@ -1,16 +1,12 @@
 form.filter-colors-form {
-  height: 40%;
+  height: 60%;
   width: 70%;
-  @include flex(row, center, center);
-
-  @include md {
-    height: 50%;
-    width: 80%;
-  }
+  @include flex(column, center, center);
 
   @include lg {
     height: 100%;
     width: 70%;
+    @include flex(row, center, center);
   }
 
   @include xl {
@@ -19,17 +15,20 @@ form.filter-colors-form {
   }
 
   input.searchbar {
-    display: none;
     background-color: $background-color;
     outline: none;
     width: 100%;
     padding-left: 1rem;
-    height: 40%;
+    height: 30%;
     font-size: 0.6rem;
     @include round-border;
 
+    @include md {
+      height: 50%;
+      font-size: 1rem;
+    }
+
     @include lg {
-      display: block;
       font-size: 0.7rem;
     }
 
@@ -41,7 +40,7 @@ form.filter-colors-form {
   .dropdown {
     position: relative;
     @include flex(row, end, center);
-    height: 100%;
+    height: 70%;
     width: 30%;
     margin-left: 5%;
 
