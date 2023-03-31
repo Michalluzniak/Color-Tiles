@@ -4,9 +4,10 @@ import { isColorDefault } from '../../utils/isColorDefault';
 interface SingleColorTileProps {
   color: Colors;
   removeColor: (color: string) => void;
+  setIsCoppied: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const SingleColorTile = ({ color, removeColor }: SingleColorTileProps) => {
+export const SingleColorTile = ({ color, removeColor, setIsCoppied }: SingleColorTileProps) => {
   //
   const tileBackgroundColor = { backgroundColor: color.value };
 
@@ -17,6 +18,7 @@ export const SingleColorTile = ({ color, removeColor }: SingleColorTileProps) =>
         style={tileBackgroundColor}
         onClick={(event) => {
           navigator.clipboard.writeText(color.value);
+          setIsCoppied((prev) => !prev);
         }}
       >
         {!isColorDefault(color.name) && (

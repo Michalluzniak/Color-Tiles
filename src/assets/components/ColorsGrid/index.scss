@@ -1,4 +1,5 @@
 .colors-grid {
+  position: relative;
   display: grid;
   grid-gap: 1.5rem;
   justify-content: center;
@@ -49,7 +50,6 @@
     }
 
     .remove-tile {
-      // display: none;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -91,6 +91,39 @@
     @include xl {
       text-align: center;
       padding-top: 0.3rem;
+    }
+  }
+
+  .clipboard-copied {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 5%;
+    width: 50%;
+    font-size: 0.6rem;
+    padding: 0.4rem;
+    color: white;
+    background-color: #999;
+    @include flex(row, center, center);
+    @include round-border;
+
+    @include sm {
+      width: 50%;
+    }
+
+    @include md {
+      font-size: 0.9rem;
+    }
+
+    @include lg {
+      font-size: 1rem;
+    }
+
+    @include xl {
+      height: 5%;
+      width: 20%;
+      font-size: 1rem;
     }
   }
 }
