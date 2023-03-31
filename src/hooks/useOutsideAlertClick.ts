@@ -7,7 +7,6 @@ export const useOutsideAlertClick = (ref: React.RefObject<HTMLElement>) => {
     const handleClickOutside = (event: globalThis.MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setClickedOutside(true);
-        return true;
       }
     };
 

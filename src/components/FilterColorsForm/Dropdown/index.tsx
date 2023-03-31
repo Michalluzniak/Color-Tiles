@@ -1,3 +1,4 @@
+import { LegacyRef } from 'react';
 import { Filter } from '../index';
 import { CheckboxList } from './CheckboxList';
 
@@ -7,6 +8,7 @@ interface DropdownProps {
   checkboxFilterOptions: string[];
   checkedState: Filter;
   handleFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  dropdownRef: LegacyRef<HTMLButtonElement>;
 }
 
 export const Dropdown = ({
@@ -15,10 +17,13 @@ export const Dropdown = ({
   checkboxFilterOptions,
   checkedState,
   handleFilterChange,
+  dropdownRef,
 }: DropdownProps) => {
   return (
     <div className="dropdown">
-      <button onClick={dropdownToggle}>Filter</button>
+      <button onClick={dropdownToggle} ref={dropdownRef}>
+        Filter
+      </button>
       {isDropdownOpen && (
         <div className="dropdown-menu">
           <CheckboxList

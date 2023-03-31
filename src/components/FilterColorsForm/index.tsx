@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useOutsideAlertClick } from '../../hooks/useOutsideAlertClick';
 import { Dropdown } from './Dropdown';
 
 export type Filter = { red: boolean; green: boolean; blue: boolean; saturation: boolean };
@@ -30,6 +31,14 @@ export const FilterColorsForm = ({ filter, setFilter, setSearchTerm }: FilterCol
     setIsDropdownOpen((prev) => !prev);
   };
 
+  const dropdownRef = useRef(null);
+  const [clickedOutside, setClickedOutside] = useOutsideAlertClick(dropdownRef);
+
+  useEffect(() => {
+    setClickedOutside(false);
+    setIsDropdownOpen(false);
+  }, [clickedOutside, setClickedOutside]);
+
   return (
     <form
       onSubmit={(e) => {
@@ -45,6 +54,7 @@ export const FilterColorsForm = ({ filter, setFilter, setSearchTerm }: FilterCol
         onChange={(event) => inputValueHandler(event)}
       />
       <Dropdown
+        dropdownRef={dropdownRef}
         isDropdownOpen={isDropdownOpen}
         dropdownToggle={dropdownToggle}
         checkboxFilterOptions={CHECKBOX_FILTER_OPTIONS}
