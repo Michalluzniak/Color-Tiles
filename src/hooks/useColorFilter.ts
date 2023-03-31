@@ -21,6 +21,7 @@ export const useColorFilter = () => {
 
   const [colors, setColors] = useState<Colors[]>([]);
   const [newColor, setNewColor] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState({
     red: false,
     green: false,
@@ -46,27 +47,33 @@ export const useColorFilter = () => {
   };
 
   const filteredColors: Colors[] = useMemo(() => {
-    if (!filter.red && !filter.green && !filter.blue && !filter.saturation) {
+    if (!filter.red && !filter.green && !filter.blue && !filter.saturation && searchTerm === '') {
       // Return original colors array if no color option is checked
       return colors;
     }
     return colors.filter((color) => {
       const [r, g, b] = hexToRgb(color.value);
       const [h, s, l] = rgbToHsl(r, g, b);
-
+      console.log(searchTerm);
       const redOver50 = r > 127;
       const greenOver50 = g > 127;
       const blueOver50 = b > 127;
       const saturationOver50 = s > 50;
 
+      const searchTermMatch = color.value.toLowerCase().includes(searchTerm.toLowerCase());
+
+      if (!filter.red && !filter.green && !filter.blue && !filter.saturation) {
+        return searchTermMatch;
+      }
+
       return (
-        (filter.red && redOver50) ||
-        (filter.green && greenOver50) ||
-        (filter.blue && blueOver50) ||
-        (filter.saturation && saturationOver50)
+        (filter.red && redOver50 && searchTermMatch) ||
+        (filter.green && greenOver50 && searchTermMatch) ||
+        (filter.blue && blueOver50 && searchTermMatch) ||
+        (filter.saturation && saturationOver50 && searchTermMatch)
       );
     });
-  }, [colors, filter.red, filter.green, filter.blue, filter.saturation]);
+  }, [colors, filter.red, filter.green, filter.blue, filter.saturation, searchTerm]);
 
   const sortedColors: Colors[] = filteredColors.sort((c1, c2) => {
     const [r1, g1, b1] = hexToRgb(c1.value);
@@ -81,5 +88,5 @@ export const useColorFilter = () => {
     }
   });
 
-  return [sortedColors, setColors, removeColor, newColor, setNewColor, filter, setFilter] as const;
+  return [sortedColors, setColors, removeColor, newColor, setNewColor, filter, setFilter, setSearchTerm] as const;
 };

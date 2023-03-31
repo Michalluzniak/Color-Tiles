@@ -11,9 +11,10 @@ interface HeaderProps {
   setNewColor: React.Dispatch<React.SetStateAction<string>>;
   filter: Filter;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter }: HeaderProps) => {
+export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFilter, setSearchTerm }: HeaderProps) => {
   //
   const [isOpenMobile, setIsOpenMobile] = useState(false);
   const isMobile = useIsMobile(900);
@@ -30,7 +31,7 @@ export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFi
       </div>
       <div className={isOpenMobile ? 'header-mobile-content-active' : 'header-mobile-content'}>
         <NewColorForm colors={colors} setColors={setColors} newColor={newColor} setNewColor={setNewColor} />
-        <FilterColorsForm filter={filter} setFilter={setFilter} />
+        <FilterColorsForm filter={filter} setFilter={setFilter} setSearchTerm={setSearchTerm} />
       </div>
     </div>
   ) : (
@@ -38,7 +39,7 @@ export const Header = ({ colors, setColors, newColor, setNewColor, filter, setFi
       <div className="logo">
         <p>color tiles</p>
       </div>
-      <FilterColorsForm filter={filter} setFilter={setFilter} />
+      <FilterColorsForm filter={filter} setFilter={setFilter} setSearchTerm={setSearchTerm} />
       <NewColorForm colors={colors} setColors={setColors} newColor={newColor} setNewColor={setNewColor} />
     </div>
   );

@@ -6,9 +6,10 @@ export type Filter = { red: boolean; green: boolean; blue: boolean; saturation: 
 export interface FilterColorsFormProps {
   filter: Filter;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const FilterColorsForm = ({ filter, setFilter }: FilterColorsFormProps) => {
+export const FilterColorsForm = ({ filter, setFilter, setSearchTerm }: FilterColorsFormProps) => {
   //
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -21,6 +22,7 @@ export const FilterColorsForm = ({ filter, setFilter }: FilterColorsFormProps) =
   };
 
   const inputValueHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setSearchTerm(event.target.value);
     setInputValue(event.target.value);
   };
 
