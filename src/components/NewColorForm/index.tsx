@@ -1,5 +1,6 @@
 import React from 'react';
 import { Colors } from '../../hooks/useColorFilter';
+import { expandHexColor } from '../../utils/expandHexColor';
 import { addColorValidation } from '../../utils/validation/addColorValidation';
 import { doesColorNotExist } from '../../utils/validation/doesColorNotExist';
 import { realTimeHexValidation } from '../../utils/validation/realTimeHexValidation';
@@ -20,7 +21,7 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
   setInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (realTimeHexValidation(event.target.value) || event.target.value === '') {
       this.setState({ inputValue: event.target.value });
-      this.props.setNewColor(event.target.value);
+      this.props.setNewColor(expandHexColor(event.target.value.toUpperCase()));
     }
   };
 
@@ -34,7 +35,7 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
     ) {
       this.props.setColors([
         ...this.props.colors,
-        { name: this.state.inputValue.toUpperCase(), value: this.state.inputValue.toUpperCase() },
+        { name: this.state.inputValue.toUpperCase(), value: expandHexColor(this.state.inputValue.toUpperCase()) },
       ]);
       this.props.setNewColor('');
       this.setState({ inputValue: '' });
