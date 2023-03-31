@@ -1,3 +1,3 @@
-export const isColorDefault = (color: string) => {
+export const isColorDefault = (color: string): boolean => {
   return !color.startsWith('#');
 };

@@ -39,8 +39,7 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
 
   submitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(this.props.newColor && this.props.newColor);
-    // this.props.newColor && doesColorNotExist(this.props.colors, this.props.newColor)
+
     if (this.props.newColor && !doesColorNotExist(this.props.colors, this.props.newColor)) {
       this.setState({
         isError: true,
@@ -59,19 +58,6 @@ export default class NewColorForm extends React.Component<NewColorFormProps> {
       this.props.setNewColor('');
       this.setState({ inputValue: '' });
     }
-
-    // if (
-    //   this.props.newColor &&
-    //   doesColorNotExist(this.props.colors, this.props.newColor) &&
-    //   addColorValidation(this.state.inputValue)
-    // ) {
-    //   this.props.setColors([
-    //     ...this.props.colors,
-    //     { name: this.state.inputValue.toUpperCase(), value: expandHexColor(this.state.inputValue.toUpperCase()) },
-    //   ]);
-    //   this.props.setNewColor('');
-    //   this.setState({ inputValue: '' });
-    // }
   };
 
   render() {
