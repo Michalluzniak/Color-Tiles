@@ -17,7 +17,7 @@ https://michalluzniak.github.io/Color-Tiles/
 
 ## Run locally 
 
-### ### `npm install` 
+### `npm install` 
 To install all dependencies
 
 ### `npm start`
