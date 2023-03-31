@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Color-Tiles/static/css/main.c2e93cc8.css",
-    "main.js": "/Color-Tiles/static/js/main.d6b17d85.js",
+    "main.css": "/Color-Tiles/static/css/main.ab8042da.css",
+    "main.js": "/Color-Tiles/static/js/main.21071481.js",
     "static/js/787.6182a4f2.chunk.js": "/Color-Tiles/static/js/787.6182a4f2.chunk.js",
     "index.html": "/Color-Tiles/index.html",
-    "main.c2e93cc8.css.map": "/Color-Tiles/static/css/main.c2e93cc8.css.map",
-    "main.d6b17d85.js.map": "/Color-Tiles/static/js/main.d6b17d85.js.map",
+    "main.ab8042da.css.map": "/Color-Tiles/static/css/main.ab8042da.css.map",
+    "main.21071481.js.map": "/Color-Tiles/static/js/main.21071481.js.map",
     "787.6182a4f2.chunk.js.map": "/Color-Tiles/static/js/787.6182a4f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2e93cc8.css",
-    "static/js/main.d6b17d85.js"
+    "static/css/main.ab8042da.css",
+    "static/js/main.21071481.js"
   ]
 }
